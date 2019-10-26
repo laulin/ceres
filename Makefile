@@ -13,7 +13,7 @@ run: build
 
 test: build
 	rm -f example/*.py
-	docker run -it --rm -v $(PWD)/example/:/example --name ceres ceres /usr/bin/python3 -m ceres /example
+	docker run -it --rm --name ceres ceres /usr/bin/python3 -m ceres example/
 
 clean:
 	rm -rf dist/ build/

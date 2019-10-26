@@ -11,7 +11,7 @@ class Builder:
 
     def __init__(self, pwd:str):
         self._log = logging.getLogger("Builder")
-        self._pwd = pwd
+        self._pwd = path.abspath(pwd)
 
     def _read_file(self, filename):
         full_filename = path.join(self._pwd, filename)
