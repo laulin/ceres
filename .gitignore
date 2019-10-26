@@ -2,3 +2,4 @@ example/*.py
 build/**
 ceres.egg-info/**
 dist/**
+__pycache__
