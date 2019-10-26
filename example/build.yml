@@ -3,6 +3,12 @@ request code:
   template: template/request.py.mako
   output: "{pwd}/{template_name}_{entity_name}.py"
 
+router code:
+  model: model/*.yml
+  template: template/router.py.mako
+  output: "{pwd}/{template_name}.py"
+  aggregate: true
+
 request test:
   model: model/*.yml
   template: template/test_request.py.mako

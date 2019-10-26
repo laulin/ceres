@@ -9,6 +9,7 @@ variables:
   on_success: 201
   on_fail: 403
   action: POST
+  path: "/message"
 
 tests:
   on_success:

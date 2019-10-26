@@ -9,6 +9,7 @@ variables:
   on_success: 200
   on_fail: 404
   action: GET
+  path: "/user"
 
 tests:
   on_success:
