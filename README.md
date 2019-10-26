@@ -97,16 +97,6 @@ The are section here :
 
 You can imagine to add your own section, it's up to you !
 
-#### Aggregate
-
-**Advanced topic, you can skip it at first time**
-
-In some case, you may need to send many models *at same time* to a temple. 
-You can see this in the *router* case of the example. 
-
-To do that you have to add a key *aggregate: true* in the target. All 
-models will be merge in a dict called *models*, directly available in 
-the template. 
 
 ### Template file
 
@@ -164,6 +154,17 @@ request test:
 There is two target : *request code* and *request test*. Both use the pattern
 N to 1 (multi entity, single model). You also do the opposite (1 to N) or 
 a simple 1 to 1. 
+
+#### Aggregate
+
+**Advanced topic, you can skip it at first time**
+
+In some case, you may need to send many models *at same time* to a temple. 
+You can see this in the *router* case of the example. 
+
+To do that you have to add a key *aggregate: true* in the target. All 
+models will be merge in a dict called *models*, directly available in 
+the template. 
 
 # Thanks
 
