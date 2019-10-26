@@ -33,7 +33,7 @@ generate the code.
 The generation is straight forward :
 
 ```console
-foo@bar:~$ python3 -m ceres example/ 
+foo@bar:~$ ceres example/ 
 ```
 
 Now let's look how create your first project.
