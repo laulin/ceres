@@ -1,7 +1,7 @@
 # Ceres 
 
-Ceres is the goddess of the agriculture. Take a seed and just call Ceres 
-to make it grow the plant. After that, you just have to crop the result :)
+Ceres is the goddess of the agriculture. Take a seed, plant it and call Ceres 
+to make it grow. After that, you just have to harvest the result :)
 
 It is the same idea that drive this tool : let the computer work for you !
 Seriously, the Ceres tool is a code generator based on model/template. 
@@ -55,7 +55,7 @@ Obvioulsy you will need pip3 installed.
 A good example is always better than documentation. So let me 
 explain how to create your code generation.
 
-***All files hereby can be found in *example/* directory.**
+**All files hereby can be found in *example/* directory.**
 
 As explain in introduction, there are 3 types of files : entity file,
 template file and build file.
@@ -63,10 +63,10 @@ template file and build file.
 ### Entity file
 
 It contains information for the code generation. The only
-requirement it about the field *name* that must exist. An example 
+requirement is the field *name* (must exist). An example 
 can be this one :
 
-```yaml
+```YAML
 name: get_user
 entity:
   username: 
@@ -90,12 +90,12 @@ tests:
 
 The are section here :
 
-- entity : contain the data model
+- entity : contains the data model
 - variables : contains variable needed in addition to entity to 
     generate the code
 - tests : contains test vectors
 
-You can imagine to add your own section, it's up to you !
+You can imagine to add your own sections, it's up to you !
 
 
 ### Template file
@@ -122,13 +122,13 @@ str(${k})${'' if loop.last else ' + '}\
         return ${variables["on_success"]}
 ```
 
-Basically, the entity yaml file is load and forwarded as dict to the template
+Basically, the entity YAML file is load and forwarded as dict to the template
 engine. So you can retrive all keys and values during the render. 
 
 ### Build file
 
 Well, at this point the explanation is coming to an end. To orchestrate all the 
-generation, a yaml file is present at the root directory. Each target - define 
+generation, a YAML file is present at the root directory. Each target - define 
 as a key in dict - must contains thee following keys :
 
 - model : define the path of entity(ies). Unix style path, can use pattern (?, *, [], ...)
@@ -140,7 +140,7 @@ as a key in dict - must contains thee following keys :
 
 Let's look at the file in *example/*: 
 
-```yaml
+```YAML
 request code:
   model: model/*.yml
   template: template/request.py.mako
@@ -159,15 +159,26 @@ a simple 1 to 1.
 
 **Advanced topic, you can skip it at first time**
 
-In some case, you may need to send many models *at same time* to a temple. 
+In some case, you may need to send many models *at same time* to a template. 
 You can see this in the *router* case of the example. 
+
+```yaml
+router code:
+  model: model/*.yml
+  template: template/router.py.mako
+  output: "{pwd}/{template_name}.py"
+  aggregate: true
+```
 
 To do that you have to add a key *aggregate: true* in the target. All 
 models will be merge in a dict called *models*, directly available in 
 the template. 
 
+Warning : in this case, the {entity_name} will be not available for
+the output name !
+
 # Thanks
 
 - Laurent GUERIN for his tools Telosys (https://www.telosys.org/). I was 
   inspired by this tool to make Ceres.
-- Yohann - "Yohann who ?" - to introduce Telosys :)
+- Yohann - "Yohann Who ?" - to introduce Telosys :)
