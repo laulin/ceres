@@ -5,10 +5,10 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="ceres",
-    version="1.0.0",
+    version="1.0.1",
     author="Laurent MOULIN",
     author_email="gignops@noemail.com",
-    description="Ultra simple code generator",
+    description="As simple as possible code generator",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/laulin/ceres",
@@ -22,5 +22,6 @@ setuptools.setup(
     install_requires=[
         'pyyaml',
         'mako'
-    ],
+    ], 
+    scripts=['bin/ceres'],
 )
