@@ -1,0 +1,19 @@
+name: post_message
+entity:
+  id: 
+    type: int
+  message: 
+    type: str
+
+variables:
+  on_success: 201
+  on_fail: 403
+  action: POST
+
+tests:
+  on_success:
+    id: 10
+    message: foobar
+  on_fail:
+    id: 10
+    message: a

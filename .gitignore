@@ -1,0 +1,4 @@
+example/*.py
+build/**
+ceres.egg-info/**
+dist/**
